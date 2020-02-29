@@ -1,4 +1,6 @@
-# Introduction
+# Efficient Construction of (Distributed) Verifiable Random Functions (2002, Dodis)
+
+## Introduction
 * Combining PRFs and digital signatures
 * PRF could be made by: one way functions (but inefficient); smaller PRFs to "extend" to bigger ones; based on decisional Diffie-Hellman (DDH) assumption
 * Application: lottery where participant sends input x and organizer evaluates the VRF
@@ -11,7 +13,7 @@
 * C is an injective encoding whose output is L-bits (notably different from l-bits)
 * Main result: first non-interactive DVRF (albeit multi-round)
 
-# Notes
+## Notes
 * VRF's definition includes pseudorandomness (i.e. no value of the function can be distinguished from a random string): ![3](/images/dodisdvrf_3.png)
 * VUF (verifiable unpredictable function): pseudorandomness is replaced by unpredictability: ![4](/images/dodisdvrf_4.png)
 * DDH (decisional) and its variants have the potential of yielding a (verifiable) pseudorandom function whereas CDH (computational) and its variants have the potential of yielding a (verifiable) unpredictable function
