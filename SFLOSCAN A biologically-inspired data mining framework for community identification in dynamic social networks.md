@@ -14,6 +14,6 @@
 * Then can perform hierarchical clustering over the entire time period to obtain clusters
 
 ## Notes
-* Some definitions (e.g. fuzzy members, necessity of observations O_t that contain groupings) not too clear
+* Some definitions (e.g. fuzzy members, necessity of observations O_t that contain groupings, etc.) not too clear
 * Exact mechanism of hierarchical clustering not too clear
 * Simple but powerful idea
