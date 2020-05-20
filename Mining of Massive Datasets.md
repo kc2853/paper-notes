@@ -1,5 +1,25 @@
 # Mining of Massive Datasets (2019, Leskovec et al.)
 
+## Chapter 2: MapReduce and the New Software Stack
+* Relevant examples: matrix-vector multiplication (e.g. for PageRank) involving billions of dimensions, analyzing (social) graphs with billions of nodes and edges
+* Cluster computing: racks of compute nodes (intra-connected by Ethernet, inter-connected by switch)
+* Two key desired properties: redundant storage of files, computations divided into tasks
+* GFS (Google File System), HDFS (Hadoop Distributed File System), Colossus (improvement over GFS)
+* DFS desirable and more sensical if files are enormous and rarely updated
+* Master node: monitors overall status
+* MapReduce: map -> shuffle -> reduce; key-value pair (but key can be replicated)
+* Example of counting the number of occurrences of each word given documents
+* Task <= node
+* ![MapReduce](/images/mmds_mapreduce.png)
+* Failures: master node fail (entire job must be restarted), Map worker fail (replace then reinform Reduce workers), Reduce worker fail (just replace)
+* Matrix-vector multiplication: stored form of (i, j, m_{ij}) -> key-value pair (i, m_{ij} * v_j)
+* Relational-algebra operations (recall: attributes < schema < relation): selection, projection, union, intersection, difference, natural join (< equijoin < inner join -- amid inner join, cross join, left outer join, right outer join, full outer join), grouping and aggregation (i.e. grouping by key then performing basic statistics like SUM, COUNT, AVG, MIN, MAX)
+* Evolution into acyclic network of functions: ![Acyclic](/images/mmds_acyclic.png)
+* UC Berkeley's Spark, Google's TensorFlow, Google's Pregel (graph model of data, has unique ways of dealing with failures)
+* Blocking property: tasks only deliver outputs after they complete
+* Spark: more efficient in coping with failures, grouping tasks, and scheduling execution of functions; RDD (Resilient Distributed Dataset); notion of transformation vs action; Map (one-to-one input/output), Flatmap (one-to-many input/output), Filter, Reduce (action not transformation), built-in relational-algebra operators (Join, GroupByKey)
+* While Spark manages large RDDs in "splits" a la Hadoop's chunks, two differences: lazy evaluation (of RDDs until action), notion of lineage (e.g. recorded is lineage of R_2 saying that it was made by R_1 via operation X while R_1 was made by R_0 via operation Y) such that aids recovery in a more complicated way at the benefit of greater speed when things go right
+
 ## Chapter 3: Finding Similar Items
 * Jaccard similarity: IoU (intersection over union)
 * Example usages: plagiarism, mirror pages, articles from the same source, collaborative filtering (e.g. online purchases, movie ratings, etc.)
@@ -17,9 +37,6 @@
 * Second and fourth columns would be bucketed together: ![Banding](/images/mmds_banding.png)
 * Crux: Come up with document-term matrix (consider n-grams and filtering techniques) -> minhashing -> signature matrix -> LSH and banding technique as per chosen banding parameters -> candidate pairs
 * LSH can be applied for other distance metrics (Hamming, cosine, Euclidean) and other situations (entity resolution, fingerprint matching)
-
-## Chapter 4: Mining Data Streams
-* To be continued
 
 ## Chapter 6: Frequent Itemsets
 * Market-basket model, e.g. {bread, milk, diaper, beer}
