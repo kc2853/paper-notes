@@ -22,7 +22,21 @@
 * To be continued
 
 ## Chapter 6: Frequent Itemsets
-* To be continued
+* Market-basket model, e.g. {bread, milk, diaper, beer}
+* Support (number of baskets for which set of items I is a subset) and support threshold (for defining "frequent")
+* Other applications: related concepts, plagiarism, biomarkers
+* Confidence (of the association rule I -> j): ratio of support for I + {j} and support for I
+* Interest (of I -> j): difference between its confidence and the fraction of baskets that contain item j -- can be negative
+* Reasonable example: support threshold of 1% and confidence of 50%
+* Use of main memory example: say n items -> need space to store counts of pairs, i.e. about 2n^2 bytes (if integer is 4 bytes) -> if machine has 2 GB of main memory, then we require about n < 33,000
+* Triangular-matrix method (one-dimensional triangular array for all pairs) vs triples method (record [i, j, c] for count c for item i and item j but only if c > 0)
+* Monotonicity: if I is frequent, then every J \in I should be frequent
+* Maximal: if no superset is frequent
+* A-Priori Algorithm: ![Apriori](/images/mmds_apriori.png)
+* ![Apriori memory](/images/mmds_apmemory.png)
+* ![Apriori general](/images/mmds_apgeneral.png)
+* PCY: takes advantage of unused memory in the first pass -> create a hash table for bucket counts (not the pairs themselves) -> create a bitmap (1 if pair is frequent and 0 if pair is not frequent) -> during second pass, discard immediately as per created bitmap to save memory
+* Further optimizations: Multistage algo, Multihash algo, randomized algos, SON, Toivonen's
 
 ## Chapter 11: Dimensionality Reduction
 * To be continued
