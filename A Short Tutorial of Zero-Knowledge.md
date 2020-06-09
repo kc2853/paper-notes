@@ -14,7 +14,7 @@
 
 ## Compositions
 * Sequential: ZK is preserved
-* Parallel: generally not preserved; every NP-set has a constant-round parallel ZK proof
+* Parallel: generally not preserved; every NP-set has a constant-round parallel ZK proof (under standard intractability assumptions)
 * ![Parallel](/images/zktutorial_parallel.png)
 * Concurrent: 1. purely asynchronous model (every NP-set has a concurrent ZK proof with sub-logarithmic number of rounds under standard intractability assumptions); 2. asynchronous model with timing (each party runs protocols employing time-driven operations by holding a local clock whose rates are bounded by an a priori known constant)
 * Currently unknown if every NP-set has a constant-round concurrent ZK proof?
