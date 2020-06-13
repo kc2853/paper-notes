@@ -34,8 +34,9 @@
 * Some factors to keep in mind: which assumptions are being made (standard number theory assumptions vs OWF); constant-round or how many rounds (round complexity); AM or not
 * GNI (graph non-isomorphism): SZK(4) -- SZK with 4 rounds
 * GI (graph isomorphism): SZK(5)
-* NP ⊂ CZKarg(4) (assuming OWP) -- CZK argument with 4 rounds
+* NP ⊂ CZKAoK(4) (assuming OWP) -- CZK argument of knowledge with 4 rounds
 * NP ⊂ CZK(5) (assuming 2-round perfectly hiding commitment scheme) -- CZK (proof) with 5 rounds
 * NP ⊂ CZKPoK(5) (assuming 2-round perfectly hiding commitment scheme) -- CZK proof of knowledge with 5 rounds
+* Question: doesn't AoK => PoK => proof? Hmm!
 * CZK(2) ⊂ BPP = bbCZK(3) -- CZK with 3 rounds using black-box simulation
 * bbCZK(4) ⊂ coMA ∩ AM
