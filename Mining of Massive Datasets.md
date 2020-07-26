@@ -21,6 +21,8 @@
 * Spark: more efficient in coping with failures, grouping tasks, and scheduling execution of functions; RDD (Resilient Distributed Dataset); notion of transformation vs action; Map (one-to-one input/output), Flatmap (one-to-many input/output), Filter, Reduce (action not transformation), built-in relational-algebra operators (Join, GroupByKey)
 * While Spark manages large RDDs in "splits" a la Hadoop's chunks, two differences: lazy evaluation (of RDDs until action), notion of lineage (e.g. recorded is lineage of R_2 saying that it was made by R_1 via operation X while R_1 was made by R_0 via operation Y) such that aids recovery in a more complicated way at the benefit of greater speed when things go right
 * TensorFlow: workflow system specifically dedicated to machine learning
+* 3 different approaches to dealing with failures related to recursion: 1. iterated MapReduce (e.g. HaLoop); 2. Spark approach (for-loops supported); 3. bulk-synchronous systems (e.g. Pregel)
+* Pregel: graph-based, bulk-synchronous system for processing massive amounts of data; supersteps (into which computations are organized); periodic checkpointing (making a copy of the entire state of each task?!)
 * Dominant cost: usually communication cost (such that trade-off with parallelism)
 
 ## Chapter 3: Finding Similar Items
