@@ -60,5 +60,15 @@
 * PCY: takes advantage of unused memory in the first pass -> create a hash table for bucket counts (not the pairs themselves) -> create a bitmap (1 if pair is frequent and 0 if pair is not frequent) -> during second pass, discard immediately as per created bitmap to save memory
 * Further optimizations: Multistage algo, Multihash algo, randomized algos, SON, Toivonen's
 
+## Chapter 9: Recommendation Systems
+* Two possible approaches: content-based vs collaborative filtering
+* Utility matrix: ![Utility](/images/mmds_utility.png)
+* Question: would user A like SW2?
+* Content-based recommendation system: item profiles (features) of (say) documents (tf-idf score), images (tags), movies (genre, actors, directors); can also create user profiles(!) based on item features (e.g. user U has 0.2 for Julia Roberts b/c she's in 20% of U's liked movies); exist techniques involving random hyperplane, LSH, or machine learning classifier (e.g. decision tree of U's preference based on item features)
+* Collaborative filtering: rounding the data (e.g. substituting 1 for any positive value) or normalizing ratings (such that average rating is centered around 0) may be necessary; note the duality of similarity (user-user similarity vs item-item similarity); clustering (based on item features, a la dimension reduction) possible
+* Clustering example: ![Clustering](/images/mmds_clustering.png)
+* Dimension reduction using UV-decomposition (related to SVD but not commonly used?): try to (locally) minimize entry-wise RMSE in the decomposition using gradient descent
+* Netflix challenge: $1 mil awarded in 2009; winning entry was a combination of different algos; IMDB's genre and other information were often not useful; time of rating turned out to be useful
+
 ## Chapter 11: Dimensionality Reduction
 * To be continued
