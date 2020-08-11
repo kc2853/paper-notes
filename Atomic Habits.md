@@ -5,7 +5,7 @@
 * Cue, craving, response, reward
 * 1% compounding
 * Pointing and calling
-* <Time> and <Location>
+* TIME and LOCATION
 * Environment
 * Supernatural stimuli ("big red dots")
 * Dopamine-driven feedback loop
