@@ -61,3 +61,16 @@
 * Their simulation: ![Curve3](/images/defi_curve3.png)
 * CRV (governance token a la COMP) and Curve DAO
 * Ren, Synthetix, Balancer
+
+## Balancer
+* You collect fees from traders (who rebalance your portfolio per arbitrage opportunities) instead of paying fees to portfolio managers to rebalance
+* Equations (value function V, spot price SP, effective price EP): ![Balancer](/images/defi_balancer.png)
+* Can think of n tokens' (in the pool, token < pool) value all in terms of (say) token t => each token's normalized weight (i.e. the exponent in the generalized constant product formula) = share in the pool
+* The constant product invariant will actually increase in practice b/c trading fees?!
+* Trading formulas: out given in (how many will I get if I put in 100?), in given out (how many do I need to put in to get 100?), in given price (how many do I need to put in to change the price from 8 to 12?)
+* Pool tokens(?): &lt;Pools can aggregate the liquidity provided by several different users. In order for them to be able to freely deposit and withdraw assets from the pool, Balancer Protocol has the concept of pool tokens. Pool tokens represent ownership of the assets contained in the pool. The outstanding supply of pool tokens is directly proportional to the Value Function of the pool. If a deposit of assets increases the pool Value Function by 10%, then the outstanding supply of pool tokens also increases by 10%. This happens because the depositor is issued 10% of new pool tokens in return for the deposit.&gt;
+* 3 planned releases: Bronze, Silver, Gold
+* Controlled pools (only specific address can add/remove liquidity to the pool) vs finalized pools (fixed configurations, trustless)
+* Exists 1000+ pools!
+* Swap (traders exchanging tokens; all go to liquidity providers) and exit (liquidity providers withdrawing; most go to liquidity providers but some go to Balancer Labs) fees
+* BAL: governance token; liquidity mining such that distributed to LPs (liquidity providers)
