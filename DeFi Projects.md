@@ -74,3 +74,11 @@
 * Exists 1000+ pools!
 * Swap (traders exchanging tokens; all go to liquidity providers) and exit (liquidity providers withdrawing; most go to liquidity providers but some go to Balancer Labs) fees
 * BAL: governance token; liquidity mining such that distributed to LPs (liquidity providers)
+
+## Rari Capital
+* Mint RFT when lock in funds -> burn them to retrieve funds (plus yield) back
+* Charges 20% performance fee
+* Mentions Ken Deeter's guarded launch concept: $350 user deposit limit; limited asset types of DAI, USDC, USDT; 3-out-of-5 multisig for smart contract upgrades; rebalancer remains centralized however
+* DAI, USDC to dYdX; DAI, USDC, USDT to Compound
+* Deposits (same when withdrawing) exchanged (to stablecoins?) via 0x
+* Will be implementing smart-contract-based slippage limit?
