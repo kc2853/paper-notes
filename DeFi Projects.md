@@ -104,3 +104,12 @@
 * Token sponsor: initial taker who deposits collateral into smart contract and withdraws synthetic tokens to sell to token holders (liquidator/disputor)
 * Basically: token sponsor vs token holder (liquidator vs disputor) -> DVM only called when liquidator disputed (a la court system)
 * ![UMA2](/images/defi_uma2.png)
+
+## Liquidity Dividends Protocol (LID)
+* Uniswap fails with no liquidity / "rug pull" scam (where scammer places liquidity into Uniswap only to pull it out from unsuspecting buyers in the future) -> Proof of Locked Liquidity
+* a) LID standardized noncustodial presale smart contracts that lock liquidity: other projects can perform ICO via LID (basically the main idea)?!
+* b) LID certification of PoLL tokens
+* c) LID staking: receive dividends by staking LID; voting multiplier (checks if voter has participated in at least 50% of DAO votes, then applies 2x multiplier based on some criteria); staking referral (400 LID registration fee, which can be earned/discounted via referral)
+* LID DAO receives 5% fee from all LID certified presales & staking dapps; LID transfer tax (1.9% to stakers, 0.1% to LID DAO)
+* ![LID](/images/defi_lid.png)
+* Basically: launchpad that locks funds into Uniswap to guarantee liquidity
