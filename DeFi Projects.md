@@ -82,3 +82,25 @@
 * DAI, USDC to dYdX; DAI, USDC, USDT to Compound
 * Deposits (same when withdrawing) exchanged (to stablecoins?) via 0x
 * Will be implementing smart-contract-based slippage limit?
+
+## UMA
+* Basic idea (Hart Lambur's tweets): https://archive.vn/U5iXS
+* TRS: total return swap (e.g. betting on gold's price without gold)
+* Cool examples: investing in US stocks from the developing world, decentralized life insurance, shorting altcoins, leverage trading
+* UMA contains 5 core components: public addresses of maker and taker; margin subaccounts; logic to calculate the economic terms of the agreement; choice of oracle; contract functions to add/withdraw margin, remargin, settle, etc.
+* Example (taker, not maker, is gold buyer): ![UMA](/images/defi_uma.png)
+* The function remargin(): transfers amount from maker's margin account to taker's (if reference asset's price goes up); can happen in short time intervals (e.g. every day); can be exploited by anyone?! => incentivizes taker/maker to run it as much as possible (b/c it's ideal to remargin continuously even if it's hard on ETH)
+* Keeper: third party margin custodian who can always monitor and remargin for a fee
+* Taker (not just maker) can be on margin!
+* Whitepaper has detailed examples of UMA contract life cycle with/without default
+* Can be configured such that ETH is converted to USD per remargin transfer (!= beginning/final price of ETH)?!
+* Trustless tokenization: Alice (taker) can remove leverage from her position -> put in $10 mil worth of ETH to "purchase" $10 mil worth of gold -> mint ERC20 tokens correspondingly -> new market
+* Future work: trade negotiation protocol (automating the process of matchmaking taker with best maker); margin netting (offsetting margin based on multiple positions)
+* Exists a separate whitepaper just for oracle
+* Priceless token: has 2 states (collateralized, undercollateralized); liquidator (using off-chain oracle) vs disputor (can dispute and win reward if liquidator is wrong)
+* ETHBTC: first priceless synthetic asset
+* Can use ETH or DAI as collateral rather than SNX
+* DVM (Data Verification Mechanism): oracle service provided by UMA; does not provide an on-chain price feed; only called to resolve liquidation disputes
+* Token sponsor: initial taker who deposits collateral into smart contract and withdraws synthetic tokens to sell to token holders (liquidator/disputor)
+* Basically: token sponsor vs token holder (liquidator vs disputor) -> DVM only called when liquidator disputed (a la court system)
+* ![UMA2](/images/defi_uma2.png)
