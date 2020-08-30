@@ -113,3 +113,15 @@
 * LID DAO receives 5% fee from all LID certified presales & staking dapps; LID transfer tax (1.9% to stakers, 0.1% to LID DAO)
 * ![LID](/images/defi_lid.png)
 * Basically: launchpad that locks funds into Uniswap to guarantee liquidity
+
+## mStable
+* Goal: have one asset (mUSD = "USD") for DAI, USDT, USDC, TUSD, PAX, GUSD, etc.
+* mStable asset / mAsset / mUSD
+* Meta Governor: stakes and profits but then takes on risk b/c their Meta is used first to recollateralize (e.g. sold to market to compensate once USDC loses peg)
+* ![MTA](/images/defi_mta.png)
+* MINT, REDEEM: obvious
+* SWAP: zero slippage possible via constant sum formula; insurances include Meta (sold first to recollateralize) and maximum weight for each asset in the basket (capping the maximum loss)
+* SAVE (by holding mUSD): underlying assets create yield from Compound and Aave; swap fees (b/c providing liquidity)
+* EARN: interactive rewards given in MTA; currently tracks incentivized pools from Balancer and Uniswap
+* Minting rewards (for MINT) + ecosystem rewards (for EARN)
+* Similar to Curve, but slightly different details
