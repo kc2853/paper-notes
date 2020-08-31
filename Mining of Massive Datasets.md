@@ -78,6 +78,19 @@
 * Direct discovery of communities: clique (but NP-complete to find one), complete bipartite graph (always exists theoretically?; method of finding frequent itemset)
 * Matrix theory & cut: ![Cut](/images/mmds_cut.png)
 * Three matrices: adjacency matrix, degree matrix, Laplacian matrix (eigenvector corresponding to the second smallest eigenvalue of which represents partitioning!)
+* Communities in practice are rarely disjoint -> finding overlapping communities -> affiliation-graph model & MLE: ![Affiliation](/images/mmds_affiliationgraphmodel.png)
+* MLE b/c maximize above with p_C, p_D, etc. as parameters
+* Discrete gradient descent possible (for assumption #2 above): insert/delete one member for one community
+* Can alternatively change discrete into continuous optimization by allowing "strength of membership"
+* Simrank: random walking (with a restart) on a social graph -> see convergence -> can check which nodes are similar to source node (recall that new convergence may be needed for new source node) -> add (highest simrank first) to source node's community -> stopping criterion: density (fraction of present edges in a community), conductance (number of edges with exactly one end in community C divided by volume of C, where volume = smaller of sum of degrees of nodes in C and sum of degrees of nodes not in C)
+* Exists approximation algorithm for simrank
+* Why count triangles?: friends would have more triangles than random graph; age of community could correlate with density of triangles
+* Heavy hitter: node with degree at least sqrt(m); heavy hitter triangle: all 3 nodes are heavy hitters
+* Algorithm for counting triangles: ![Triangle](/images/mmds_triangle.png)
+* Transitive closure (set of all pairs of nodes with a path) and reachability (whether or not there is a path from u to v): exists (parallel) algos and variations
+* Neighborhood of radius d = N(u, d) = set of nodes v for which there is a path of length at most d from u to v; neighborhood profile (monotonically increasing sequence |N(u, 1)|, |N(u, 2)|, etc.)
+* Diameter: smallest integer d such that for every two nodes u and v there is a path of length d or less from u to v; definition makes sense if the graph is strongly connected (all undirected and connected = strongly connected)
+* Exists approximation algo for N(u, d)
 
 ## Chapter 11: Dimensionality Reduction
 * To be continued
