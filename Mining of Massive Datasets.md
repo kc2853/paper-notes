@@ -70,5 +70,14 @@
 * Dimension reduction using UV-decomposition (related to SVD but not commonly used?): try to (locally) minimize entry-wise RMSE in the decomposition using gradient descent; can consequently guess missing entries(!) in the utility matrix by UV-decomposition
 * Netflix challenge: $1 mil awarded in 2009; winning entry was a combination of different algos; IMDB's genre and other information were often not useful; time of rating turned out to be useful
 
+## Chapter 10: Mining Social-Network Graphs
+* Examples: Facebook friends, telephone network, email network, collaboration network (e.g. can have 2 node types: authors, papers), website network (e.g. can have 3 node types: user, tag, website)
+* Goal: find communities
+* Betweenness of an edge (fraction of shortest paths that include the edge): use this as a distance measure; lower the better; Girvan-Newman Algorithm to compute; can output communities via process of edge removal (i.e. start deleting edges with highest betweenness score)
+* Girvan-Newman: ![GN](/images/mmds_gn.png)
+* Direct discovery of communities: clique (but NP-complete to find one), complete bipartite graph (always exists theoretically?; method of finding frequent itemset)
+* Matrix theory & cut: ![Cut](/images/mmds_cut.png)
+* Three matrices: adjacency matrix, degree matrix, Laplacian matrix (eigenvector corresponding to the second smallest eigenvalue of which represents partitioning!)
+
 ## Chapter 11: Dimensionality Reduction
 * To be continued
