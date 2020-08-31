@@ -87,7 +87,7 @@
 * Why count triangles?: friends would have more triangles than random graph; age of community could correlate with density of triangles
 * Heavy hitter: node with degree at least sqrt(m); heavy hitter triangle: all 3 nodes are heavy hitters
 * Algorithm for counting triangles: ![Triangle](/images/mmds_triangle.png)
-* Transitive closure (set of all pairs of nodes with a path) and reachability (whether or not there is a path from u to v): exists (parallel) algos and variations
+* Transitive closure (set of all pairs of nodes with a path) and reachability (whether or not there is a path from u to v): there are (parallel) algos and variations
 * Neighborhood of radius d = N(u, d) = set of nodes v for which there is a path of length at most d from u to v; neighborhood profile (monotonically increasing sequence |N(u, 1)|, |N(u, 2)|, etc.)
 * Diameter: smallest integer d such that for every two nodes u and v there is a path of length d or less from u to v; definition makes sense if the graph is strongly connected (all undirected and connected = strongly connected)
 * Exists approximation algo for N(u, d)
