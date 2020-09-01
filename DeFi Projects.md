@@ -125,3 +125,14 @@
 * EARN: interactive rewards given in MTA; currently tracks incentivized pools from Balancer and Uniswap
 * Minting rewards (for MINT) + ecosystem rewards (for EARN)
 * Similar to Curve, but slightly different details
+
+## Aave
+* Previously: ETHLend
+* Can choose from 2 interest rates: stable (average from past 30 days?), variable
+* aToken: allows earning interest similar to cToken?
+* Flash loan possible (with 0.09% fee)!
+* 3 current use cases of flash loan?: arbitrage; refinance loans in other lending protocols; swap collaterals on (say) Maker
+* Compared to Compound: has more tokens available; less collateral needed to borrow; not as user-friendly; no native token liquidity mining
+* LEND: fee reduction; governance
+* Aave <> RealT: trying to tokenize real estate?!
+* Has Uniswap integration: can use Uniswap's LP tokens!
