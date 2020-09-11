@@ -136,3 +136,23 @@
 * LEND: fee reduction; governance
 * Aave <> RealT: trying to tokenize real estate?!
 * Has Uniswap integration: can use Uniswap's LP tokens!
+
+## Nexus Mutual
+* Smart contract insurance (they advertise it as cover): covers "hacks" (at least 20% of cover amount must be lost in order to make a valid claim?); doesn't cover phishing attacks, problems related to network congestion, oracles, miners, etc.
+* NXM: priced via bonding curve
+* Become a member of the mutual (pay some ETH and fill out KYC) -> select smart contract to cover and for how long -> select cover amount -> covered
+* Can stake NXM on a smart contract to bet that it's safe -> make staking rewards
+* A vote is needed for a successful payout?!
+* Low volume / actual payout
+* Based in the UK
+
+## Opyn
+* Most relevant info here: https://opyn.gitbook.io/opyn/faq
+* Different from Hegic b/c oToken (extra step of minting it after successfully collateralizing)
+* ![Opyn](/images/defi_opyn.png)
+* Collateral for oToken can be liquidated as a result
+* Current protections: ETH upside/downside protection; COMP downside + deposit (USDC and DAI, incl. smart contract hack) protection; BAL downside protection
+* ETH/COMP/BAL put options are collateralized by USDC; ETH call options are collateralized by ETH; COMP insurance is collateralized by ETH
+* Uses Compound's ETH oracle for its deposit protection
+* Exercising vs selling option: ![Opyn2](/images/defi_opyn2.png)
+* Some options strategies: covered call (sell call option to trade upside for improving breakeven); protective collar = covered call + buying a put option; call ~= put + underlying asset; strangle (buy call and put at the same time for different strike prices)
