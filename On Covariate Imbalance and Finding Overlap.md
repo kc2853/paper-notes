@@ -44,7 +44,7 @@
 * Bayesian bootstrap: https://stats.stackexchange.com/questions/181350/bootstrapping-vs-bayesian-bootstrapping-conceptually
 * Full matching: special case of subclassification; each stratum has at least one treated & one control
 
-## Diagnosing and responding to violations in the positivity assumption
+## 1. Diagnosing and responding to violations in the positivity assumption
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4107929/pdf/nihms603976.pdf
 * Restriction of the covariate adjustment set; alternative projection function; restriction of the sample; modification of the target intervention
 * ~= data trimming + "treatment trimming" + "covariate trimming" + alternative projection function
@@ -69,7 +69,7 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4107929/pdf/nihms603976.pdf
 * Dangers of "trimming"
 * Section 6.5: overall advice
 
-## Practice of causal inference with the propensity of being zero or one: assessing the effect of arbitrary cutoffs of propensity scores
+## 2. Practice of causal inference with the propensity of being zero or one: assessing the effect of arbitrary cutoffs of propensity scores
 https://www.e-sciencecentral.org/upload/csam/pdf/csam-23-001.pdf
 * PV may be hard to detect in practice b/c need to model propensity score s.t. near 0 or 1 pretty unlikely
 * JCART = CART + jackknife resampling
@@ -85,12 +85,12 @@ https://www.e-sciencecentral.org/upload/csam/pdf/csam-23-001.pdf
 * Continuous multivariable (e.g. sum of two covariates) PV -> JCART's limitation?
 * Paper not clear on: how GC; meaning of bias in Table 7-10; how JCART is used to predict ATE
 
-## Invited Commentary: Positivity in Practice
+## 3. Invited Commentary: Positivity in Practice
 https://academic.oup.com/aje/article-pdf/171/6/674/263877/kwp436.pdf
 * Granular vs coarse categorization of covariates matters; tradeoff between bias due to PV & bias due to confounding (e.g. coarser age group)
 * 2 solutions basically: restrict (change target population); interpolate/extrapolate
 
-## Augmented Weighted Estimators Dealing with Practical Positivity Violation to Causal Inferences in a Random Coefficient Model
+## 4. Augmented Weighted Estimators Dealing with Practical Positivity Violation to Causal Inferences in a Random Coefficient Model
 https://escholarship.org/content/qt21m8x39g/qt21m8x39g_noSplash_b5aaa3b89ddad94a26e52d82b5ac7e44.pdf
 * Trimming -> handles PV but alters the causal estimand
 * Intern-teaching (T = 1) vs student-teaching (T = 0) per school
@@ -103,7 +103,7 @@ https://escholarship.org/content/qt21m8x39g/qt21m8x39g_noSplash_b5aaa3b89ddad94a
 * Main idea: include G-computation estimator when practical PV?
 * Not sure how their simulations defined practical PV and reported numbers (e.g. 80% of schools had PV)
 
-## A discriminative approach for finding and characterizing positivity violations using decision trees
+## 5. A discriminative approach for finding and characterizing positivity violations using decision trees
 https://arxiv.org/pdf/1907.08127.pdf
 * Finding nonpositivity: hard with multivariate distributions
 * > To overcome this generalization of marginals to joint overlap, [5] suggested tabular analysis... While their method characterizes the violating subspaces in a simple and intuitive way, it has two drawbacks: (1) it does not scale properly for more than a handful of covariates, due to its 2-dimensional tabular nature; and (2) the handling of continuous variables is suboptimal, as it is done by using predefined bins (e.g. quartiles). -- binning could be bad b/c sensitive to # bins
@@ -113,7 +113,7 @@ https://arxiv.org/pdf/1907.08127.pdf
 * https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/ -- NHEFS data
 * Soft violation ~= practical PV
 
-## Characterization of Overlap in Observational Studies
+## 6. Characterization of Overlap in Observational Studies
 http://proceedings.mlr.press/v108/oberst20a/oberst20a.pdf
 * > We formalize overlap estimation as a problem of finding minimum volume sets subject to coverage constraints and reduce this problem to binary classification with Boolean rule classifiers. -- abstract
 * Off-policy: here relates to observational data from elsewhere?
@@ -137,7 +137,7 @@ http://proceedings.mlr.press/v108/oberst20a/oberst20a.pdf
 * Iris dataset; Jobs dataset; two real-world clinical datasets
 * Other base overlap estimators?: CBB (covariate bounding box using marginal intersections); propensity score estimators; one-class SVM (OSVM)
 
-## Propensity score adjustment using machine learning classification algorithms to control selection bias in online surveys
+## 7. Propensity score adjustment using machine learning classification algorithms to control selection bias in online surveys
 https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0231500
 * PSA: propensity score adjustment
 * Unclear if "adjustment" ~= reweighting
@@ -148,7 +148,7 @@ https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0231500
 * Simulation study: 500+ simulations with Hajek weight -> bias/MSE to estimate "proportion of voters"
 * Not really measuring anything causal (e.g. Y, ATE)?!; just propensity score -> reweighting -> guess global (everyone) parameters from local (online surveys)
 
-## Causal Inference What If textbook (Chapters 11-12)
+## 8. Causal Inference What If textbook (Chapters 11-12)
 https://cdn1.sph.harvard.edu/wp-content/uploads/sites/1268/2020/11/ciwhatif_hernanrobins_23nov20.pdf
 * OLS: just expectable linear regression
 * Saturated model (e.g. linear reg for binary input/output): when # parameters = # outputs
@@ -158,13 +158,13 @@ https://cdn1.sph.harvard.edu/wp-content/uploads/sites/1268/2020/11/ciwhatif_hern
 * Effect modification ~= confounding - unconfoundedness assumption of the model
 * Technical Point 12.2: formula for stabilized weighting -> Y as per IPW
 
-## Estimation of causal effects with multiple treatments: a review and new ideas
+## 9. Estimation of causal effects with multiple treatments: a review and new ideas
 https://arxiv.org/pdf/1701.05132.pdf
 * What happens if treatment is not binary?
 * Generalized propensity score: vector
 * CRM (common referent matching), IPW, KMC (k-means clustering somehow), VM (their idea: vector matching)
 
-## Estimating causal effects for multivalued treatments: a comparison of approaches
+## 10. Estimating causal effects for multivalued treatments: a comparison of approaches
 http://lindenconsulting.org/documents/Multivalued_Article.pdf
 * 3 approaches: regression adjustment (RA); weighted estimator (IPTW & MMWS = marginal mean weighting through stratification); doubly robust (A-IPTW & IPTW-RA)
 * Outcome model vs treatment model (estimating propensity score)
@@ -178,12 +178,12 @@ http://lindenconsulting.org/documents/Multivalued_Article.pdf
 * GMM framework can derive A-IPTW & IPTW-RA in one step?
 * A-IPTW & IPTW-RA performed best; paper supports doubly robust
 
-## Use of Stabilized Inverse Propensity Scores as Weights to Directly Estimate Relative Risk and Its Confidence Intervals
+## 11. Use of Stabilized Inverse Propensity Scores as Weights to Directly Estimate Relative Risk and Its Confidence Intervals
 https://www.sciencedirect.com/science/article/pii/S1098301510603725
 * Shows N_{IPTW weighting} = 2 * N_{stabilized weighting} = 2 * N_{of sample}
 * Binary output -> E[Y] = P(Y) -> weighted logistic regression (unclear) using IPTW vs SW (stabilized weighting)
 
-## Estimation of Causal Effects of Multiple Treatments in Observational Studies with a Binary Outcome
+## 12. Estimation of Causal Effects of Multiple Treatments in Observational Studies with a Binary Outcome
 https://arxiv.org/pdf/2001.06483.pdf
 * Multiple treatments & binary outcome
 * BART vs {IPTW, TMLE, vector matching, regression adjustment}
@@ -198,7 +198,7 @@ https://arxiv.org/pdf/2001.06483.pdf
 * Simulation 2: comparison of IPTW-GBM (with/without trimming), BART (with/without discarding rules), TMLE -- which performed best in Simulation 1
 * > Using BART, the percentages of discarded units in the treated group, averaged across 200 replications, in the weak, moderateI, moderateII and strong scenario were 38%, 24%, 15% and 0.2%, respectively, as compared to 86%, 42%, 42% and 13% computed by the GPS-based discarding rule -- BART's discarding rules discard the least!
 
-## Covariate balancing propensity score
+## 13. Covariate balancing propensity score
 https://imai.fas.harvard.edu/research/files/CBPS.pdf
 * CBPS: covariate balancing propensity score method
 * Weights assigned s.t. optimize covariate balance
@@ -209,12 +209,12 @@ https://imai.fas.harvard.edu/research/files/CBPS.pdf
 * CBPS2: when taking f(X) = their score condition in (7)
 * Actual estimation via GMM or EL
 
-## Data-adaptive selection of the truncation level for Inverse-Probability-of-Treatment-Weighted estimators
+## 14. Data-adaptive selection of the truncation level for Inverse-Probability-of-Treatment-Weighted estimators
 https://core.ac.uk/download/pdf/61321376.pdf
 * Data-adaptively truncated IPTW estimator (tIPTW in R): can select appropriate weight truncation levels data-adaptively
 * Adds an extra "nuisance" estimator though it doesn't need to be a consistent one
 
-## Effects of Adjusting for Instrumental Variables on Bias and Precision of Effect Estimates
+## 15. Effects of Adjusting for Instrumental Variables on Bias and Precision of Effect Estimates
 https://pdfs.semanticscholar.org/4575/b7d629714ddc48b62dce3c86401c1dc3b9db.pdf
 * Conditioning on IV, near-IV (weakly associated with outcome), confounders; the first two usually yield larger bias & variance?
 * Minimizing unmeasured confounding should be priority (even at the risk of conditioning on IV)
@@ -224,13 +224,13 @@ https://pdfs.semanticscholar.org/4575/b7d629714ddc48b62dce3c86401c1dc3b9db.pdf
 * The paper's "exposure" = treatment; "predictors of exposure" ~= IV
 * Main point: conditioning on IV not good but not too bad
 
-## Instrumental variables as bias amplifiers with general outcome and confounding
+## 16. Instrumental variables as bias amplifiers with general outcome and confounding
 https://arxiv.org/pdf/1701.04177.pdf
 * Bias amplifier: those (like IV) that increase bias when conditioned on
 * "Conditioning on IV can increase bias" has only been for linear models -> paper tries to generalize (+ certain monotonicity assumptions)
 * Point: need to be careful about "let's condition on as many things as possible"
 
-## ASSESSING LACK OF COMMON SUPPORT IN CAUSAL INFERENCE USING BAYESIAN NONPARAMETRICS: IMPLICATIONS FOR EVALUATING THE EFFECT OF BREASTFEEDING ON CHILDREN’S COGNITIVE OUTCOMES
+## 17. ASSESSING LACK OF COMMON SUPPORT IN CAUSAL INFERENCE USING BAYESIAN NONPARAMETRICS: IMPLICATIONS FOR EVALUATING THE EFFECT OF BREASTFEEDING ON CHILDREN’S COGNITIVE OUTCOMES
 https://projecteuclid.org/download/pdfview_1/euclid.aoas/1380804800
 * Distinction between common support and common causal support (only including covariates relevant in ignorability assumption), which BART deals more with
 * Data from National Longitudinal Survey of Youth (breastfeeding -> math/reading achievement at age 5-6)
@@ -249,7 +249,7 @@ https://projecteuclid.org/download/pdfview_1/euclid.aoas/1380804800
 * Interpretability of PV: use simple tree with (input, output) = (X, counterfactual sd - max sd of observed_t - sd of sd of observed_t) on PV set
 * Worthwhile: discard by BART vs discard by propensity
 
-## A Practical Introduction to Bayesian Estimation of Causal Effects: Parametric and Nonparametric Approaches
+## 18. A Practical Introduction to Bayesian Estimation of Causal Effects: Parametric and Nonparametric Approaches
 https://arxiv.org/pdf/2004.07375.pdf
 * > we demonstrate how priors can induce shrinkage and sparsity in parametric models -- shrinkage ~= regularization; sparsity: few nonzero parameters
 * Time-varying treatment settings also considered
@@ -263,7 +263,7 @@ https://arxiv.org/pdf/2004.07375.pdf
 * > The Bayesian literature has explored several such “sparsity” priors, including the horseshoe, LASSO, and spike-and-slab priors
 * It seems there exists Bayesian parametric (how does this work?) vs nonparametric distinction
 
-## Estimating Population Average Causal Effects in the Presence of Non-Overlap: The Effect of Natural Gas Compressor Station Exposure on Cancer Mortality
+## 19. Estimating Population Average Causal Effects in the Presence of Non-Overlap: The Effect of Natural Gas Compressor Station Exposure on Cancer Mortality
 https://arxiv.org/pdf/1805.09736.pdf
 * 2 contributions: 1. data-driven definition of propensity score overlap; 2. novel Bayesian framework for extrapolating
 * > causal effects of compressor stations on county-level thyroid cancer and leukemia mortality rates
@@ -279,12 +279,12 @@ https://arxiv.org/pdf/1805.09736.pdf
 * Iterate (BART -> SPL) M times -> average!
 * Can use Bayesian bootstrap -> population ATE?
 
-## Balancing Covariates via Propensity Score Weighting
+## 20. Balancing Covariates via Propensity Score Weighting
 http://www2.stat.duke.edu/~fl35/papers/psweight_final.pdf
 * Balancing weights: generalization of most weights ~= my equation #3
 * Overlap weights: (w_1, w_0) = (1 - e(), e())
 
-## Discrete Optimization for Interpretable Study Populations and Randomization Inference in an Observational Study of Severe Sepsis Mortality
+## 21. Discrete Optimization for Interpretable Study Populations and Randomization Inference in an Observational Study of Severe Sepsis Mortality
 https://arxiv.org/pdf/1411.4873.pdf
 * 2 contributions: maximal box problem; randomization inference to form conf interval for ATE with binary outcome
 * 2 types of overlap: strong overlap; interpolation overlap
